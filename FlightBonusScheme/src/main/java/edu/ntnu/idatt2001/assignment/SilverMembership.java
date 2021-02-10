@@ -5,6 +5,7 @@ public class SilverMembership extends Membership {
 
     @Override
     public int registerPoints(int bonusPointBalance, int newPoints) {
+        if (newPoints < 0) return bonusPointBalance;
         newPoints = Math.round(POINTS_SCALING_FACTOR * newPoints);
         return bonusPointBalance + newPoints;
 

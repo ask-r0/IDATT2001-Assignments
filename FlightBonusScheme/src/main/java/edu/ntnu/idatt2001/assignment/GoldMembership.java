@@ -7,6 +7,7 @@ public class GoldMembership extends Membership {
 
     @Override
     public int registerPoints(int bonusPointBalance, int newPoints) {
+        if (newPoints < 0) return bonusPointBalance;
         if (bonusPointBalance >= REQUIRED_POINTS_LEVEL_2) {
             newPoints = Math.round(POINTS_SCALING_FACTOR_LEVEL_1 * newPoints);
         } else {
