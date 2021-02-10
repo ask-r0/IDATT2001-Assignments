@@ -8,7 +8,7 @@ public class BonusMember {
 
     private int memberNumber;
     private LocalDate enrolledDate;
-    private int bonusPointsBalance = 0;
+    private int bonusPointsBalance;
     private String name;
     private String eMailAddress;
     private String password;
@@ -41,6 +41,10 @@ public class BonusMember {
         return membership.getMembershipName();
     }
 
+    public int getMemberNumber() {
+        return this.memberNumber;
+    }
+
     public boolean checkPassword(String password) {
         return this.password.equals(password);
     }
@@ -58,6 +62,11 @@ public class BonusMember {
         } else {
             membership = new GoldMembership();
         }
+    }
+
+    @Override
+    public String toString() {
+        return name + ", (" + membership.getMembershipName() + " member) " + bonusPointsBalance;
     }
 
 
